@@ -1,12 +1,13 @@
 /* CUSTOM PROPS  */
 :root {
   --accent-color:  rgb(255, 126, 27);
-  --accent-color-hover: #ff7e1b;
+  --accent-color-hover: rgb(255, 171, 106);
   --accent-color-light: #ffeee2;
   --text-dark:   rgb(29, 32, 38);
   --text-color: rgb(105, 112, 125);
   --grey-full: rgb(182, 188, 200);
   --light-bg: #f6f8fd;
+  --divider-bg: #e4e9f2;
 }
 
 
@@ -53,6 +54,51 @@ padding-right: 20px;
 }
 
 
+
+/* BUTTONS  */
+.button {
+   display: inline-block;
+   padding: 0;
+   border: 0;
+   background-color: transparent;
+   text-decoration: none;
+   border-radius: 10px;
+   background-color: var(--accent-color);
+   color: #fff;
+   font-weight: bold;
+   font-size: 16px;
+   line-height: normal;
+   cursor: pointer;
+   overflow: hidden;
+   text-align: center;
+}
+.button--block {
+   display: flex;
+   width: 100%;
+}
+.button--wide {
+   min-width: 272px;
+}
+.button:hover {
+  background-color: var(--accent-color-hover);
+}
+.button:active {
+  transform: translateY(2px);
+}
+.button__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 22px 20px 18px;
+}
+.button__prepend {
+  margin-right: 16px;
+}
+
+
+
+
 /* FONTS  */
 /* kumbh-sans-regular - latin */
 @font-face {
@@ -70,3 +116,256 @@ padding-right: 20px;
   font-weight: 700;
   src: url('../fonts/kumbh-sans-v22-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+
+/* SITE HEADER  */
+.site-header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--divider-bg);
+}
+.site-header__logo {
+  flex-shrink: 0;
+  margin-right: 56px;
+}
+.logo {
+  display: inline-block;
+}
+.logo:hover {
+  opacity: 0.8;
+}
+.logo:active {
+  opacity: 0.6;
+}
+.logo__img {
+  display: block;
+  width: 137px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* SITENAV  */
+.sitenav {
+  margin-right: auto;
+}
+.sitenav__list {
+  display: flex;
+  padding: 0%;
+  margin: 0%;
+  list-style-type: none;
+}
+.sitenav__item {
+  position: relative;
+  padding-top: 41px;
+  padding-bottom: 45px;
+}
+.sitenav__item:not(:last-child) {
+  margin-right: 32px;
+}
+.sitenav__link {
+  display: block;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.sitenav__link:hover {
+   color: var(--text-dark);
+}
+.sitenav__link:hover::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  content: "";
+}
+
+
+/* SITE HEADER CART  */
+.site-header__cart {
+  margin-right: 46px;
+  margin-left: 24px;
+}
+.site-header__cart-link {
+  position: relative;
+  display: flex;
+  color: var(--text-color);
+}
+.site-header__cart-link:hover {
+  color: var(--text-dark);
+}
+.site-header__cart-link:active {
+  opacity: 0.6;
+}
+.site-header__cart-icon {
+  width: 22px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.site-header__cart-product-count {
+  position: absolute;
+  left: calc(100% - 13px);
+  top: -6px;
+  padding: 1px 6px;
+  border-radius: 7px;
+  font-size: 10px;
+  line-height: normal;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.site-header__cart--empty .site-header__cart-product-count {
+  display: none;
+}
+
+
+/* PROFILE AVATAR */
+.site-header__profile-link {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+.site-header__profile-link:active {
+   opacity: 0.6;
+}
+
+.site-header__profile-avatar {
+  width: 50px;
+  height: 50px;
+
+}
+.site-header__profile-link:hover {
+  border-color: var(--accent-color);
+}
+
+
+/* SITE HEADER  MODAL  */
+.site-header__cart-modal {
+  display: none;
+}
+.site-header__cart-modal--open {
+  position: absolute;
+  right: -76px;
+  top: 94px;
+  display: block;
+  width: 360px;
+}
+
+
+
+
+/* SHOPPING CART */
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  min-height: 256px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+.shopping-cart--modal {
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
+}
+.shopping-cart__header {
+  padding: 24px 24px 27px;
+  border-bottom: 1px solid var(--divider-bg);
+}
+.shopping-cart__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: var(--text-dark);
+}
+.shopping-cart__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  flex-grow: 1;
+}
+.shopping-cart__empty {
+  display: none;
+}
+.shopping-cart--empty .shopping-cart__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.shopping-cart--empty .shopping-cart__content {
+  display: none;
+}
+
+
+/* SHOPPING CART PRODUCTS  */
+.shopping-cart__products {
+   margin-bottom: 24px;
+}
+.shopping-cart-products {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  margin-bottom: 24px;
+}
+.shopping-cart-products__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+/* item-shopping-cart-products  */
+.item-shopping-cart-products {
+  display: flex;
+  align-items: flex-start;
+}
+.item-shopping-cart-products__img {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.item-shopping-cart-products__info {
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  margin-right: 18px;
+}
+.item-shopping-cart-products__name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+.item-shopping-cart-products__remove-button {
+  border: 0;
+  padding: 0;
+  align-self: center;
+  background-color: transparent;
+  color: #c3cad9;
+  cursor: pointer;
+}
+.item-shopping-cart-products__remove-button:hover {
+   color: var(--text-dark);
+}
+.item-shopping-cart-products__remove-button:active {
+   opacity: 0.6;
+}
+.item-shopping-cart-products__subtotal {
+   color: var(--text-dark);
+}
+.item-shopping-cart-products__remove-icon {
+  display: block;
+  width: 16px;
+  height: 14px;
+}
+
