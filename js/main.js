@@ -21,3 +21,34 @@ if (elRemoveProduct) {
   elShoppingCart.classList.add("shopping-cart--empty")
   })
 }
+
+
+
+// Image showcase
+const modifiers = {
+  ImgActiveClass : "img-showcase__thumbnails--active"
+}
+
+
+const elsImgShowcaseThumbnailButtons = document.querySelectorAll(".js-img-showcase-thubnail-button")
+const elsImgThumbnail = document.querySelectorAll(".img-showcase__thumbnail")
+const elImgShowcaseActive = document.querySelector(".img-showcase__active-img")
+
+
+
+elsImgShowcaseThumbnailButtons.forEach(function (elButton) {
+  elButton.addEventListener("click", function () {
+
+    // remove active form all
+    elsImgThumbnail.forEach((elImgThumbnail)=> {
+      elImgThumbnail.classList.remove(modifiers.ImgActiveClass)
+    })
+
+    // add active class
+    elButton.parentElement.classList.add(modifiers.ImgActiveClass)
+
+
+    elImgShowcaseActive.src = elButton.dataset.imgSrc
+    console.log(elImgShowcaseActive.src);
+  })
+})
