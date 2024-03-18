@@ -29,10 +29,10 @@ const modifiers = {
   ImgActiveClass : "img-showcase__thumbnails--active"
 }
 
-
-const elsImgShowcaseThumbnailButtons = document.querySelectorAll(".js-img-showcase-thubnail-button")
-const elsImgThumbnail = document.querySelectorAll(".img-showcase__thumbnail")
-const elImgShowcaseActive = document.querySelector(".img-showcase__active-img")
+const elProductPageGallery = document.querySelector(".product-page__gallery")
+const elsImgShowcaseThumbnailButtons = elProductPageGallery.querySelectorAll(".js-img-showcase-thubnail-button")
+const elsImgThumbnail = elProductPageGallery.querySelectorAll(".img-showcase__thumbnail")
+const elImgShowcaseActive = elProductPageGallery.querySelector(".img-showcase__active-img")
 
 
 
@@ -49,7 +49,7 @@ elsImgShowcaseThumbnailButtons.forEach(function (elButton) {
 
 
     elImgShowcaseActive.src = elButton.dataset.imgSrc
-    console.log(elImgShowcaseActive.src);
+
   })
 })
 
@@ -91,3 +91,58 @@ elsImgLightboxThumbnailButtons.forEach(function (elButton) {
 
   })
 })
+
+
+
+// LIGHTBOX CONTROL
+const elLightboxControlPrev = elLightbox.querySelector(".js-lightbox-control-prev")
+const elLightboxControlNext = elLightbox.querySelector(".js-lightbox-control-next")
+const elLightboxBigImg = elLightbox.querySelector(".img-showcase__active-img--lightbox")
+
+
+
+// NEXT ELEMENT SIBLING
+if (elLightboxControlNext) {
+  elLightboxControlNext.addEventListener("click", function() {
+
+    const elActiveItem = elLightbox.querySelector(".img-showcase__thumbnails--active")
+
+    elActiveItem.classList.remove("img-showcase__thumbnails--active")
+
+    if (elActiveItem.nextElementSibling === null) {
+      elsImgLightboxThumbnail[0].classList.add("img-showcase__thumbnails--active")
+    } else {
+      elActiveItem.nextElementSibling.classList.add("img-showcase__thumbnails--active")
+    }
+
+    const mainactive = elLightbox.querySelector(".img-showcase__thumbnails--active")
+
+    elLightboxBigImg.src = mainactive.querySelector(".js-img-lightbox-thubnail-button").dataset.imgSrc
+  })
+}
+
+
+// PREVIOUS ELEMENT SIBLING
+if (elLightboxControlPrev) {
+  elLightboxControlPrev.addEventListener("click", function() {
+
+    const elActiveItem1 = elLightbox.querySelector(".img-showcase__thumbnails--active")
+
+    elActiveItem1.classList.remove("img-showcase__thumbnails--active")
+
+    if (elActiveItem1.previousElementSibling === null) {
+      elsImgLightboxThumbnail[3].classList.add("img-showcase__thumbnails--active")
+    } else {
+      elActiveItem1.previousElementSibling.classList.add("img-showcase__thumbnails--active")
+    }
+
+
+    const mainactive = elLightbox.querySelector(".img-showcase__thumbnails--active")
+
+    elLightboxBigImg.src = mainactive.querySelector(".js-img-lightbox-thubnail-button").dataset.imgSrc
+
+  })
+}
+
+
+
