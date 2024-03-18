@@ -52,3 +52,42 @@ elsImgShowcaseThumbnailButtons.forEach(function (elButton) {
     console.log(elImgShowcaseActive.src);
   })
 })
+
+
+// lightbox
+const elLightboxToggleButton = document.querySelector(".img-showcase__lightbox-toggle")
+const elLightbox = document.querySelector(".lightbox")
+const elLightboxCloseButton = document.querySelector(".lightbox__close")
+
+elLightboxToggleButton.addEventListener("click", function () {
+    elLightbox.classList.add("lightbox--open")
+})
+
+elLightboxCloseButton.addEventListener("click", function () {
+  elLightbox.classList.remove("lightbox--open")
+})
+
+
+// LIGHTBOX ACTIVE IMG
+const elsImgLightboxThumbnailButtons = elLightbox.querySelectorAll(".js-img-lightbox-thubnail-button")
+const elsImgLightboxThumbnail = elLightbox.querySelectorAll(".img-showcase__thumbnail")
+const elImgLightboxActive = elLightbox.querySelector(".img-showcase__active-img")
+
+
+
+elsImgLightboxThumbnailButtons.forEach(function (elButton) {
+  elButton.addEventListener("click", function () {
+
+    // remove active form all
+    elsImgLightboxThumbnail.forEach((elImgThumbnail)=> {
+      elImgThumbnail.classList.remove("img-showcase__thumbnails--active")
+    })
+
+    // add active class
+    elButton.parentElement.classList.add("img-showcase__thumbnails--active")
+
+
+    elImgLightboxActive.src = elButton.dataset.imgSrc
+
+  })
+})
