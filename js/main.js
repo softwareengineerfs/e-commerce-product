@@ -1,3 +1,25 @@
+
+// Increase and lower numbers
+const elMinusButton = document.querySelector(".buying__minus");
+const elPlususButton = document.querySelector(".buying__plus");
+const elNumber = document.querySelector(".buying__number");
+
+const elMainCardButton = document.querySelector(".main-card");
+const elMainCardDropdown = document.querySelector(".main-card__dropdown");
+
+elMinusButton.addEventListener("click", function () {
+  elNumber.textContent--;
+});
+
+elPlususButton.addEventListener("click", function () {
+  elNumber.textContent++;
+});
+
+
+
+
+
+
 const elSiteHeaderLink = document.querySelector(".js-site-header__cart-link");
 const elSiteHeaderCartModal = document.querySelector(".site-header__cart-modal")
 const elRemoveProduct = document.querySelector(".item-shopping-cart-products__remove-button")
